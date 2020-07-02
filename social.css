@@ -1,0 +1,265 @@
+:root {
+    --bg-color: hsl(230, 17%, 14%);
+    --font-color: hsl(228, 34%, 66%);
+    --social-bg-color: hsl(228, 28%, 20%);
+    --social-bg-hover: hsl(228, 28%, 26%);
+    --heading: hsl(0, 0%, 100%);
+    --theme-bg: linear-gradient(to right, #378FE6, #3EDA82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --theme-bg-hover: linear-gradient(to right, #378FE6, #3EDA82);
+    --round-hover: hsl(228, 28%, 30%);
+    --footer-color: hsl(228, 34%, 66%);
+    --footer-link-color: hsl(0, 0%, 100%);
+}
+  
+[data-theme="light"] {
+    --bg-color: hsl(0, 0%, 100%);
+    --font-color: hsl(228, 12%, 44%);
+    --social-bg-color: hsl(227, 47%, 96%);
+    --social-bg-hover: hsl(227, 47%, 92%);
+    --heading: hsl(230, 17%, 14%);
+    --theme-bg: hsl(228, 12%, 60%);
+    --theme-bg-hover: linear-gradient(to right, #378FE6, #3EDA82); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --round-hover: hsl(0, 0%, 100%);
+    --footer-color: hsl(228, 28%, 20%);
+    --footer-link-color: hsl(228, 45%, 44%);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-size: 14px;
+    color: var(--font-color);
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    font-weight: 700;
+}
+
+.container {
+    width: 360px;
+    background-color: var(--bg-color);
+}
+
+.head {     
+    text-align: left;
+    flex-direction: column;
+}
+
+
+h1, h3 {
+    color: var(--heading);
+    font-size: 1.8em;
+}
+
+h4 { 
+    color: var(--heading);
+    font-size: 2em;
+}
+
+hr {
+    height: 0;
+    border-bottom: solid 1px var(--font-color);
+    opacity: .3;
+}
+
+.theme {
+    justify-content: space-between;
+}
+
+/* theme slider */
+    .theme-switch {
+        display: inline-block;
+        height: 24px;
+        position: relative;
+        width: 3.5em;
+    }
+    
+    .theme-switch input {
+        display: none;
+    }
+
+    .slider {
+        background: var(--theme-bg);
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: .4s;
+    }
+
+    .slider:hover {
+        background: var(--theme-bg-hover);
+    }
+
+    .slider:hover:before {
+        background: var(--round-hover);
+    }
+
+    .slider:before {
+        background-color: var(--bg-color);
+        bottom: 4px;
+        content: "";
+        height: 17px;
+        left: 4px;
+        position: absolute;
+        transition: .4s;
+        width: 17px;
+    }
+    
+
+    input:checked + .slider {
+        background-color: var(--theme-bg);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(24px);
+    }
+
+    .slider.round {
+        border-radius: 26px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+/* end of Toggle Slider */
+
+main {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.facebook, .twitter, .instagram, .youtube {
+    background-color: var(--social-bg-color);
+    width: 100%;
+    border-radius: 6px;
+    
+}
+
+section.totals .facebook:hover, section.totals .twitter:hover, section.totals .instagram:hover, section.totals .youtube:hover,
+section.overview .facebook:hover, section.overview .twitter:hover, section.overview .instagram:hover, section.overview .youtube:hover {
+    background-color: var(--social-bg-hover);
+    cursor: pointer;
+}
+
+section.totals .facebook {
+    border-top: solid hsl(208, 92%, 53%) 4px;
+    width: 100%;
+}
+
+section.totals .twitter {
+    width: 100%;
+    border-top: solid hsl(203, 89%, 53%) 4px;
+}
+
+/* Assistance on adding a gradient to appear as border */
+    section.totals .instagram {
+        width: 100%;
+        border-top: 4px solid #DF4996;
+        position: relative;
+    }
+    section.totals .instagram:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, #FDC468, #DF4996);
+        top: -4px;
+        left: 0;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+/* end Assistance on adding a gradient to appear as border */
+
+section.totals .youtube {
+    border-top: solid hsl(348, 97%, 39%) 4px;
+    width: 100%;
+}
+
+h2 {
+    color: var(--heading);
+    font-size: 4em;
+}
+
+.followers {
+    letter-spacing: 0.3em;
+}
+
+span.tick-up {
+    color: hsl(163, 72%, 41%);
+    font-size: 0.9em;
+}
+
+span.tick-down {
+    color: hsl(356, 69%, 56%);
+    font-size: 0.9em;
+}
+
+
+h3 {
+    text-align: left;
+}
+
+.label-icon, .count-tick {
+    display: flex;
+    justify-content: space-between;
+}
+
+.count-tick h4, .count-tick span {
+    align-self: center;
+}
+
+
+.attribution {
+    font-weight: 400; 
+    text-align: center; 
+    margin: 2em auto;
+    color: var(--footer-color);
+}
+
+.attribution a {
+    color: var(--footer-link-color) 
+}
+
+.attribution a:hover {
+    color: hsl(356, 69%, 56%);
+}
+
+@media (min-width: 768px) {
+    
+    .container {
+        width: 720px;
+    }
+
+    .head {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .theme {
+        justify-content: flex-start;
+        align-self: center;
+    }
+
+    .theme p {
+        margin-right: 1em;
+    }
+
+    h2 {
+        font-size: 3em;
+    }
+}
+
+@media (min-width: 1200px) { 
+    
+    .container {
+        width: 1100px;
+    }
+}
